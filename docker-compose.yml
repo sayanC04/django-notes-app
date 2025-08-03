@@ -1,6 +1,6 @@
 version : "3.3"
 services :
   web :
-     image : "cultivator404/notes-app"
+     image : "cultivator404/notes-app:latest"
      ports :
          - "8000:8000"
