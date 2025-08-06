@@ -23,7 +23,7 @@ pipeline {
         stage("Build") {
             steps {
                 script {
-                    docker-build("notes-app", "latest", "cultivator404")
+                    docker_build("notes-app", "latest", "cultivator404")
                 }
             }
         }
@@ -31,15 +31,15 @@ pipeline {
         stage("Push to DockerHub") {
             steps {
                 script {
-                    docker-push("notes-app", "latest", "cultivator404")
+                    docker_push("notes-app", "latest", "cultivator404")
                 }
             }
         }
 
         stage("Deploy") {
             steps {
-                echo "This is Deploy the Code"
-                sh "docker compose up -d"
+                echo "This is Deploy the Code with compose"
+                sh "docker compose down && docker compose up -d"
             }
         }
     }
